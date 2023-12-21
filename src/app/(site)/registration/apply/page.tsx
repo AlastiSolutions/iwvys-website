@@ -2,12 +2,15 @@
 
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Progress } from "@nextui-org/react";
-import StepOne from "@/components/registration/FormSteps/StepOne";
+import { Button, Progress, button } from "@nextui-org/react";
 import { FormPlayerName } from "@/constants/data.types";
 import * as z from "zod";
+import StepOne from "@/components/registration/FormSteps/StepOne";
+import StepTwo from "@/components/registration/FormSteps/StepTwo";
 
 const RegistrationFormPage = () => {
+  const buttonClasses = "px-4 py-2 rounded-md bg-iwvys-blue text-white";
+
   const [pageIndex, setPageIndex] = useState(1);
   const [formData, setFormData] = useState({
     playerCount: 1,
@@ -31,6 +34,21 @@ const RegistrationFormPage = () => {
     alert(formData);
   };
 
+  const formSteps = [
+    <StepOne key="step_one" data={formData} handleChange={handleChange} />,
+    <StepTwo key="step_two" data={formData} handleChange={handleChange} />,
+  ];
+
+  const submitHandler = () => {};
+
+  const nextFormStep = () => {
+    setPageIndex((prev) => prev + 1);
+  };
+
+  const prevFormStep = () => {
+    setPageIndex((prev) => prev - 1);
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <div id="header">2024 IWVYS Registration</div>
@@ -45,8 +63,23 @@ const RegistrationFormPage = () => {
         />
       </div>
 
-      <div id="form">
-        <StepOne data={formData} handleChange={handleChange} />
+      <div id="form">{formSteps[pageIndex - 1]}</div>
+      <div id="form_actions" className="flex flex-wrap gap-x-6 mx-auto">
+        {pageIndex - 1 !== 0 && (
+          <Button onClick={prevFormStep} className={buttonClasses}>
+            Back
+          </Button>
+        )}
+        {pageIndex - 1 !== formSteps.length && (
+          <Button onClick={nextFormStep} className={buttonClasses}>
+            Next
+          </Button>
+        )}
+        {pageIndex - 1 === formSteps.length && (
+          <Button onClick={submitHandler} className={buttonClasses}>
+            Register
+          </Button>
+        )}
       </div>
     </div>
   );
