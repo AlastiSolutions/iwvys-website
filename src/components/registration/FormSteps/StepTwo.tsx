@@ -20,15 +20,22 @@ const T_SHIRT_SIZES: KeyValueDropdownItem[] = [
 ];
 
 const StepTwo: React.FC<StepTwoProps> = ({ data, handleChange }) => {
+  const playerCount = 4;
+
   return (
     <div className="max-w-xs md:max-w-2xl mx-auto">
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div id="playerInformationContainer mb-10">
-          {Array.from(Array(data.playerCount)).map((player, index) => (
-            <div key={index} className="flex flex-col flex-wrap gap-4">
+          {Array.from(Array(playerCount)).map((player, index) => (
+            <div
+              key={index}
+              className="flex flex-col flex-wrap gap-4 bg-red-400 rounded my-4 px-2 py-1"
+            >
               <div>
                 <div id={`player-${index}-header`}>
-                  <h1 className="text-xl font-bold">Player 1 Information</h1>
+                  <h1 className="text-xl font-bold">{`Player ${
+                    index + 1
+                  } Information`}</h1>
                 </div>
                 <div
                   className="flex md:flex-row flex-col gap-2"
@@ -79,7 +86,42 @@ const StepTwo: React.FC<StepTwoProps> = ({ data, handleChange }) => {
                     <label htmlFor="" className="font-semibold">
                       Player #1 Gender
                     </label>
-                    <input type="radio" />
+                    <input
+                      type="radio"
+                      name={`player-${index}-gender`}
+                      value="Male"
+                    />
+                    Male
+                    <input
+                      type="radio"
+                      name={`player-${index}-gender`}
+                      value="Female"
+                    />
+                    Female
+                  </div>
+                  <div className={`player-${index}-jersey-pref-1`}>
+                    <label htmlFor="" className="font-semibold">
+                      Player #1 Jersey Preference #1
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      className="bg-red-200"
+                      name={`player-${index}-jersey-pref-1`}
+                      id={`player-${index}-jersey-pref-1`}
+                    />
+                  </div>
+                  <div className={`player-${index}-jersey-pref-2`}>
+                    <label htmlFor="" className="font-semibold">
+                      Player #1 Jersey Preference #2
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      className="bg-red-200"
+                      name={`player-${index}-jersey-pref-2`}
+                      id={`player-${index}-jersey-pref-2`}
+                    />
                   </div>
                 </div>
               </div>
