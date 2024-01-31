@@ -7,6 +7,7 @@ import { FormPlayerName } from "@/constants/data.types";
 import * as z from "zod";
 import StepOne from "@/components/registration/FormSteps/StepOne";
 import StepTwo from "@/components/registration/FormSteps/StepTwo";
+import StepThree from "@/components/registration/FormSteps/StepThree";
 
 const RegistrationFormPage = () => {
   const buttonClasses = "px-4 py-2 rounded-md bg-iwvys-blue text-white";
@@ -37,6 +38,7 @@ const RegistrationFormPage = () => {
   const formSteps = [
     <StepOne key="step_one" data={formData} handleChange={handleChange} />,
     <StepTwo key="step_two" data={formData} handleChange={handleChange} />,
+    <StepThree key="step_three" data={formData} handleChange={handleChange} />,
   ];
 
   const submitHandler = () => {};
