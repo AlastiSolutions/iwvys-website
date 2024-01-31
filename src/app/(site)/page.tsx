@@ -10,13 +10,20 @@ export default function Home() {
     <>
       <div id="iwvys_header" className="flex flex-col items-center">
         <h1 className="mt-6 text-2xl">Indian Wells Valley Youth Softball</h1>
-        <Image
-          src={"/images/announcement.jpeg"}
-          alt="Announcement Image"
-          className="mt-10"
-          width={500}
-          height={500}
-        />
+        <div className="flex md:flex-row flex-col mt-10 justify-center">
+          <Image
+            src={"/images/announcement.jpeg"}
+            alt="Announcement Image"
+            width={500}
+            height={500}
+          />
+          <Image
+            src="/images/announcement-2.png"
+            width={500}
+            height={500}
+            alt="About Image 2"
+          />
+        </div>
       </div>
       <div id="iwvys_2024_season" className="flex flex-col">
         <h1 className="mt-6 text-2xl self-center">2024 Season</h1>
