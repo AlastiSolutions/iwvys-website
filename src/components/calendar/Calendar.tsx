@@ -35,7 +35,7 @@ const EventsCalendar = () => {
 
     const onChangeView = useCallback((newView) => setCalendarView(newView), [setCalendarView])
 
-    return <div className='min-h-[55vh] h-full min-w-[65vw] w-full'>
+    return <div className='min-h-[55vh] h-[60vh] min-w-[45vw] w-[45vw'>
         <BigCalendar localizer={localizer} events={[]} startAccessor="start" endAccessor="end" defaultDate={defaultDate} min={min} max={max} date={date} onView={onChangeView} view={calendarView} views={['month', 'week']} showAllEvents={false} step={30} toolbar={true} onNavigate={onNavigate} />
     </div>
 }
