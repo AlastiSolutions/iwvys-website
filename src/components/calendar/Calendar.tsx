@@ -22,10 +22,10 @@ const EventsCalendar = () => {
         }
     }, [])
 
-    const onChangeView = useCallback(newView => setCalendarView(newView), [setCalendarView])
+    const onChangeView = useCallback((newView: React.SetStateAction<"month">) => setCalendarView(newView), [setCalendarView])
 
     return <div>
-        <BigCalendar localizer={localizer} events={DUMMY_EVENTS} startAccessor="start" endAccessor="end" defaultDate={defaultDate} onView={onChangeView} view={calendarView} views={['month', 'week']} showAllEvents={false} step={15} toolbar={true} />
+        <BigCalendar localizer={localizer} events={[{ title: "Test", start: new Date().toISOString(), end: new Date().toISOString() }]} startAccessor="start" endAccessor="end" defaultDate={defaultDate} onView={onChangeView} view={calendarView} views={['month', 'week']} showAllEvents={false} step={15} toolbar={true} />
     </div>
 }
 
