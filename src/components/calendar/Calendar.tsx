@@ -17,9 +17,11 @@ const EventsCalendar = () => {
     const [calendarView, setCalendarView] = useState(Views.MONTH);
     const [date, setDate] = useState<Date>();
 
-    const { defaultDate } = useMemo(() => {
+    const { defaultDate, min, max } = useMemo(() => {
         return {
-            defaultDate: new Date()
+            defaultDate: new Date(),
+            min: new Date(2022, 0, 1, 7, 0, 0),
+            max: new Date(2030, 11, 31, 22, 0, 0),
         }
     }, [])
 
@@ -33,8 +35,8 @@ const EventsCalendar = () => {
 
     const onChangeView = useCallback((newView) => setCalendarView(newView), [setCalendarView])
 
-    return <div>
-        <BigCalendar localizer={localizer} events={[]} startAccessor="start" endAccessor="end" defaultDate={defaultDate} date={date} onView={onChangeView} view={calendarView} views={['month', 'week']} showAllEvents={false} step={15} toolbar={true} onNavigate={onNavigate} />
+    return <div className='min-h-[55vh] h-full min-w-[65vw] w-full'>
+        <BigCalendar localizer={localizer} events={[]} startAccessor="start" endAccessor="end" defaultDate={defaultDate} min={min} max={max} date={date} onView={onChangeView} view={calendarView} views={['month', 'week']} showAllEvents={false} step={30} toolbar={true} onNavigate={onNavigate} />
     </div>
 }
 
