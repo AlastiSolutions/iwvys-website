@@ -53,7 +53,7 @@ const RegistrationFormPage = () => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div id="header">2024 IWVYS Registration</div>
+      <div id="header" className="text-2xl font-semibold self-center">2024 IWVYS Registration</div>
       <div id="progress" className="mb-8">
         <p className="text-md">{`Step ${pageIndex} of 7`}</p>
         <Progress
