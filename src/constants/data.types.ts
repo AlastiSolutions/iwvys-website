@@ -1,3 +1,5 @@
+import { Event } from 'react-big-calendar' 
+
 export type BoardMember = {
     position: string;
     name: string;
@@ -11,7 +13,7 @@ export type PDFBucketInfo = {
 export type SponsorItem = {
     name: string;
     url: string;
-};
+}
 
 export type Product = {
     imageUrl: string;
@@ -32,11 +34,8 @@ export type FormPlayerName = {
     lName: string;
 };
 
-export type Event = {
-    title: string;
-    startDate: string;
-    endDate: string;
-    isAllDay: Boolean;
-    description: string;
-    location: string;
+export type IWVYSEvent = {
+    event: Event, 
+    description: string, 
+    location: string
 }
